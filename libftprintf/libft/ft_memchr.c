@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/06 07:15:07 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/06 07:29:43 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
 
-# include "mlx.h"
-# include <unistd.h>
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	findme;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	i = 0;
+	findme = (char)c;
+	while (i < n)
+	{
+		if (((unsigned char*)s)[i] == findme)
+		{
+			s = &s[i];
+			return ((void*)s);
+		}
+		i++;
+	}
+	return (NULL);
+}

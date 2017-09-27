@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_isgraph.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/23 17:06:32 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/26 12:15:58 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-
-# include "mlx.h"
-# include <unistd.h>
-
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+int	ft_isgraph(int c)
+{
+	return (c > ' ' && c < 127);
+}

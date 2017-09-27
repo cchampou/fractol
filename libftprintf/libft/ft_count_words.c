@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/23 19:29:46 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/24 19:22:57 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
 
-# include "mlx.h"
-# include <unistd.h>
+size_t	ft_count_words(const char *s, int separator)
+{
+	size_t	n;
+	size_t	off;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	n = 0;
+	off = 1;
+	if (!s)
+		return (0);
+	while (*s)
+	{
+		n = (*s != separator && off) ? n + 1 : n;
+		off = (*s == separator) ? 1 : 0;
+		s++;
+	}
+	return (n);
+}

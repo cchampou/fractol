@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/06 13:09:37 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/23 19:01:40 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
-
-# include "mlx.h"
-# include <unistd.h>
-
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+void	ft_striter(char *s, void (*f) (char*))
+{
+	if (s && f)
+	{
+		while (*s)
+		{
+			f(s);
+			s++;
+		}
+	}
+}

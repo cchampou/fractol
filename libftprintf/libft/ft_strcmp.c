@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/06 10:35:44 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/07 15:49:52 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
 
-# include "mlx.h"
-# include <unistd.h>
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+	{
+		i++;
+	}
+	return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
+}

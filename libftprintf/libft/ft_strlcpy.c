@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/23 16:24:34 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/26 11:40:50 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
 
-# include "mlx.h"
-# include <unistd.h>
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	length;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	if (!dst || !src)
+		return (0);
+	length = ft_strlen(src);
+	while (size > 1 && *src)
+	{
+		*dst++ = *src++;
+		size--;
+	}
+	if (size >= 1)
+		*dst = 0;
+	return (length);
+}

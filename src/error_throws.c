@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   error_throws.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2017/09/27 11:31:21 by cchampou          #+#    #+#             */
+/*   Updated: 2017/09/27 11:46:46 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "fractol.h"
 
-# include "mlx.h"
-# include <unistd.h>
+void	throw_few(void)
+{
+	write(2, "fractol: too few arguments\n", 27);
+	throw_usage();
+}
 
-void	args_check(int ac);
+void	throw_many(void)
+{
+	write(2, "fractol: too many arguments\n", 28);
+	throw_usage();
+}
 
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+void	throw_usage(void)
+{
+	write(2, "usage: ./fractol [type]\n", 24);
+}

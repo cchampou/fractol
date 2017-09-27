@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   treat.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/06 11:31:39 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/22 18:12:34 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "ft_printf.h"
 
-# include "mlx.h"
-# include <unistd.h>
+void	treat_list(t_parse **list, va_list *ap)
+{
+	t_parse	*tmp;
 
-void	args_check(int ac);
+	tmp = *list;
+	while (tmp)
+	{
+		treat_elem(tmp, ap);
+		tmp = tmp->next;
+	}
+}
 
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
+void	treat_elem(t_parse *e, va_list *ap)
+{
+	char	*buffer;
 
-#endif
+	buffer = NULL;
+	if (e->spec)
+		get_arg(e, ap);
+	apply_flags(e);
+	if (e->prec && e->spec && e->spec[0] != 'C' && e->spec[0] != 'S')
+		apply_prec(e);
+	if (e->width)
+		apply_width(e);
+}

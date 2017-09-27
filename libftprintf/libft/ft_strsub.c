@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/06 14:41:05 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/23 19:07:48 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include "mlx.h"
-# include <unistd.h>
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	i;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	if (!s)
+		return (NULL);
+	i = 0;
+	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	while (i < len)
+	{
+		str[i] = s[i + start];
+		i++;
+	}
+	str[i] = '\0';
+	return ((!str) ? NULL : str);
+}

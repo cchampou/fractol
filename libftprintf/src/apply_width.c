@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   apply_width.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2017/06/09 17:12:18 by cchampou          #+#    #+#             */
+/*   Updated: 2017/06/22 18:03:16 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "ft_printf.h"
 
-# include "mlx.h"
-# include <unistd.h>
+void	apply_width(t_parse *e)
+{
+	int		len;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	len = (e->length) ? e->length : ft_strlen(e->raw);
+	if (len < e->width_value)
+	{
+		if (e->minus)
+			push_right(e, ' ', e->width_value - len);
+		else
+		{
+			if (e->zero && !e->prec)
+				push_left(e, '0', e->width_value - len);
+			else
+				push_left(e, ' ', e->width_value - len);
+		}
+	}
+}

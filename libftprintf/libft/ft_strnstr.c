@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/06 09:50:08 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/22 18:42:42 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
 
-# include "mlx.h"
-# include <unistd.h>
+char		*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	c;
+	int		i;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	c = 0;
+	i = 0;
+	if (!*little)
+		return ((char*)big);
+	while (big[c] && c < len)
+	{
+		i = 0;
+		while (big[c + i] == little[i] && c + i < len)
+			if (little[1 + i++] == '\0')
+				return ((char*)&big[c]);
+		c++;
+	}
+	return (0);
+}

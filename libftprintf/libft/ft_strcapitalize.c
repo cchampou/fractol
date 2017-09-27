@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/23 17:48:22 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/23 18:31:10 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
 
-# include "mlx.h"
-# include <unistd.h>
+char	*ft_strcapitalize(char *s)
+{
+	char	*ptr;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	ptr = s;
+	if (ft_islower(*s))
+		*s = ft_toupper(*s);
+	s++;
+	while (*s)
+	{
+		if (!(ft_isblank(*(s - 1)) && ft_isupper(*s)))
+			*s = ft_tolower(*s);
+		if (!(ft_isalnum(*(s - 1))) && ft_islower(*s))
+			*s = ft_toupper(*s);
+		s++;
+	}
+	return (ptr);
+}

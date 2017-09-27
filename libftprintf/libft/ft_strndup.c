@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/23 15:50:18 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/23 16:15:36 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include <stdlib.h>
+#include "libft.h"
 
-# include "mlx.h"
-# include <unistd.h>
+char	*ft_strndup(const char *s1, size_t n)
+{
+	char	*output;
+	size_t	cpt;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	cpt = 0;
+	if (!(output = (char*)malloc((n + 1) * sizeof(char))))
+		return (NULL);
+	while (cpt < n)
+	{
+		output[cpt] = s1[cpt];
+		cpt++;
+	}
+	output[cpt] = '\0';
+	return (output);
+}

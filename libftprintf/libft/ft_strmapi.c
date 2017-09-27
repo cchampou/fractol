@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:44:13 by cchampou         ###   ########.fr       */
+/*   Created: 2016/11/06 14:11:19 by cchampou          #+#    #+#             */
+/*   Updated: 2016/11/23 19:03:19 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include "mlx.h"
-# include <unistd.h>
+char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
+{
+	size_t	i;
+	size_t	length;
+	char	*out;
 
-void	args_check(int ac);
-
-void	throw_many(void);
-void	throw_few(void);
-void	throw_usage(void);
-
-#endif
+	if (!s || !f)
+		return (NULL);
+	i = 0;
+	length = (size_t)ft_strlen((char*)s);
+	out = ft_strnew(length);
+	if (out && s)
+	{
+		while (s[i] != 0)
+		{
+			out[i] = f((unsigned int)i, s[i]);
+			i++;
+		}
+		return (out);
+	}
+	return (NULL);
+}

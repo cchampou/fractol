@@ -6,7 +6,7 @@
 #    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/27 10:22:49 by cchampou          #+#    #+#              #
-#    Updated: 2017/09/27 11:28:17 by cchampou         ###   ########.fr        #
+#    Updated: 2017/09/27 11:37:25 by cchampou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_DIR = src/
 
 OBJ_DIR = obj/
 
-SRC = main.c error_checks.c
+SRC = main.c error_checks.c error_throws.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 10:45:05 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:27:38 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/27 11:47:25 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	args_check(int ac)
 {
+	if (ac > 2)
+		throw_many();
 	if (ac < 2)
-		write(1, "Missing argument\n", 17);
+		throw_few();
 }
