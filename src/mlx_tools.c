@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_tools.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:29:31 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 16:54:54 by cchampou         ###   ########.fr       */
+/*   Created: 2017/09/27 14:16:46 by cchampou          #+#    #+#             */
+/*   Updated: 2017/09/27 15:31:27 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		main(int ac, char **av)
+void	put_pixel_to_img(t_param *f, int x, int y, int color)
 {
-	t_param	*f;
+	char	*tmp;
 
-	f = ft_memalloc(sizeof(t_param));
-	args_check(ac, av, f);
-	launch_mlx(f);
-	init_mandel(f);
-	render_mandel(f);
+	tmp = mlx_get_data_addr(f->img, &f->bpp, &f->size_line, &f->endian);
+	tmp += y * f->size_line;
+	tmp += x * f->bpp / 8;
+	tmp[0] = color;
+	tmp[1] = color >> 8;
+	tmp[2] = color >> 16;
+}
 
-
-	mlx_loop(f->mlx);
-	free(f);
-	return (0);
+int		rgb(char red, char green, char blue)
+{
+	return ((red & 0x00FF0000) | (green & 0x0000FF00) | (blue & 0x000000FF));
 }

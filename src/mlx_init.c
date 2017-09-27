@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 10:29:31 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 16:54:54 by cchampou         ###   ########.fr       */
+/*   Created: 2017/09/27 12:34:48 by cchampou          #+#    #+#             */
+/*   Updated: 2017/09/27 17:06:36 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		main(int ac, char **av)
+void	launch_mlx(t_param *f)
 {
-	t_param	*f;
-
-	f = ft_memalloc(sizeof(t_param));
-	args_check(ac, av, f);
-	launch_mlx(f);
-	init_mandel(f);
-	render_mandel(f);
-
-
-	mlx_loop(f->mlx);
-	free(f);
-	return (0);
+	f->mlx = mlx_init();
+	f->win = mlx_new_window(f->mlx, HEIGHT, WIDTH, "Fract'ol");
+	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
+	mlx_key_hook(f->win, key_hook, f);
+	mlx_mouse_hook(f->win, mouse_hook, f);
 }

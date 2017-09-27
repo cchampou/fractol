@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 11:31:21 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 12:26:26 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/27 12:34:07 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	throw_many(void)
 
 void	throw_invalid(void)
 {
-	write(2, "Invalid type\n", 13);
+	write(2, "fractol: invalid type\n", 22);
 	throw_usage();
 	exit(-1);
 }
