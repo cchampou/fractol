@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 10:29:31 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 11:29:34 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/27 12:07:08 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 int		main(int ac, char **av)
 {
-	args_check(ac);
+	t_param	*f;
+
+	f = ft_memalloc(sizeof(t_param));
+	args_check(ac, av, f);
+
+
+
+	free(f);
 	return (0);
 }
