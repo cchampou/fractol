@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 14:03:28 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/28 14:58:54 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:50:38 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,15 @@ int		mouse_hook(int but, int x, int y, t_param *f)
 		f->zoom += step;
 	}
 	render(f);
+	return (0);
+}
+
+int		mouse_motion(int x, int y, t_param *f)
+{
+	if (f->type == 2)
+	{
+		f->ci = (double)y / 1000;
+		render(f);
+	}
 	return (0);
 }

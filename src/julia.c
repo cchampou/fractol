@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 14:41:48 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/28 14:52:20 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:58:55 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	init_julia(t_param *f)
 	f->depth = 50;
 	f->ox = WIDTH / 2;
 	f->oy = HEIGHT / 2;
+	f->cr = 0.285;
+	f->ci = 0.01;
 }
 
 void	render_julia(t_param *f)
@@ -45,8 +47,6 @@ void	calc_julia_point(t_param *f, int x, int y)
 {
 	int		i;
 
-	f->cr = 0.285;
-	f->ci = 0.01;
 	f->zr = (x - f->ox) * f->zoom;
 	f->zi = (y - f->oy) * f->zoom;
 	i = 0;
@@ -58,7 +58,7 @@ void	calc_julia_point(t_param *f, int x, int y)
 		i++;
 	}
 	if (i < f->depth)
-		put_pixel_to_img(f, x, y, rgb((char)0, (char)0, (char)(255 / f->depth) * i));
+		ppti(f, x, y, rgb((char)0, (char)0, (char)(255 / f->depth) * i));
 	else
-		put_pixel_to_img(f, x, y, 0);
+		ppti(f, x, y, 0);
 }

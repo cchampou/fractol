@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 14:22:53 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/28 14:29:55 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:59:11 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	calc_mandel_point(t_param *f, int x, int y)
 		i++;
 	}
 	if (i < f->depth)
-		put_pixel_to_img(f, x, y, rgb((char)0, (char)0, (char)(255 / f->depth) * i));
+		ppti(f, x, y, rgb((char)0, (char)0, (char)(255 / f->depth) * i));
 	else
-		put_pixel_to_img(f, x, y, 0);
+		ppti(f, x, y, 0);
 }

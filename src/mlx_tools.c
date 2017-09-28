@@ -6,13 +6,13 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 14:16:46 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 15:31:27 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/28 16:00:39 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	put_pixel_to_img(t_param *f, int x, int y, int color)
+void	ppti(t_param *f, int x, int y, int color)
 {
 	char	*tmp;
 

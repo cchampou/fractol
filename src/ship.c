@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 15:03:07 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/28 15:16:02 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/28 16:00:23 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	calc_ship_point(t_param *f, int x, int y)
 		i++;
 	}
 	if (i < f->depth)
-		put_pixel_to_img(f, x, y, rgb((char)0, (char)0, (char)(255 / f->depth) * i));
+		ppti(f, x, y, rgb((char)0, (char)0, (char)(255 / f->depth) * i));
 	else
-		put_pixel_to_img(f, x, y, 0);
+		ppti(f, x, y, 0);
 }
 
 double	val_abs(double nb)
