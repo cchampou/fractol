@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/27 14:22:53 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/28 14:29:55 by cchampou         ###   ########.fr       */
+/*   Created: 2017/09/28 14:41:48 by cchampou          #+#    #+#             */
+/*   Updated: 2017/09/28 14:52:20 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_mandel(t_param *f)
+void	init_julia(t_param *f)
 {
 	f->zoom = 0.005;
 	f->depth = 50;
@@ -20,7 +20,7 @@ void	init_mandel(t_param *f)
 	f->oy = HEIGHT / 2;
 }
 
-void	render_mandel(t_param *f)
+void	render_julia(t_param *f)
 {
 	int	x;
 	int	y;
@@ -32,7 +32,7 @@ void	render_mandel(t_param *f)
 	{
 		while (x < WIDTH)
 		{
-			calc_mandel_point(f, x, y);
+			calc_julia_point(f, x, y);
 			x++;
 		}
 		x = 0;
@@ -41,14 +41,14 @@ void	render_mandel(t_param *f)
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
 }
 
-void	calc_mandel_point(t_param *f, int x, int y)
+void	calc_julia_point(t_param *f, int x, int y)
 {
 	int		i;
 
-	f->cr = (x - f->ox) * f->zoom;
-	f->ci = (y - f->oy) * f->zoom;
-	f->zr = 0;
-	f->zi = 0;
+	f->cr = 0.285;
+	f->ci = 0.01;
+	f->zr = (x - f->ox) * f->zoom;
+	f->zi = (y - f->oy) * f->zoom;
 	i = 0;
 	while (f->zr * f->zr + f->zi * f->zi <= 4 && i < f->depth)
 	{

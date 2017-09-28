@@ -6,7 +6,7 @@
 /*   By: cchampou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/27 10:30:36 by cchampou          #+#    #+#             */
-/*   Updated: 2017/09/27 17:06:34 by cchampou         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:16:40 by cchampou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ typedef struct	s_param
 	double		tmp;
 }				t_param;
 
+void	init_ship(t_param *f);
+void	render_ship(t_param *f);
+void	calc_ship_point(t_param *f, int x, int y);
+double	val_abs(double nb);
+
+void	init_julia(t_param *f);
+void	render_julia(t_param *f);
+void	calc_julia_point(t_param *f, int x, int y);
+
 void	init_mandel(t_param *f);
 void	render_mandel(t_param *f);
 void	calc_mandel_point(t_param *f, int x, int y);
@@ -60,5 +69,8 @@ void	throw_invalid(void);
 void	throw_many(void);
 void	throw_few(void);
 void	throw_usage(void);
+
+void	init(t_param*f);
+void	render(t_param *f);
 
 #endif

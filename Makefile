@@ -6,7 +6,7 @@
 #    By: cchampou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/27 10:22:49 by cchampou          #+#    #+#              #
-#    Updated: 2017/09/27 14:37:03 by cchampou         ###   ########.fr        #
+#    Updated: 2017/09/28 15:02:58 by cchampou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_DIR = src/
 OBJ_DIR = obj/
 
 SRC = main.c error_checks.c error_throws.c mlx_init.c mlx_hooks.c mlx_tools.c \
-	  mandelbrot.c
+	  mandelbrot.c julia.c ship.c
 
 OBJ = $(SRC:.c=.o)
 
